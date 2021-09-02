@@ -32,7 +32,9 @@ const user = [
 export default function App() {
   return (
     <div className="App">
-      <CompDialog user={user} />
+      {user.map((user) => (
+        <CompDialog user={user} />
+      ))}
     </div>
   );
 }

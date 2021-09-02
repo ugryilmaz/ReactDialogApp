@@ -3,12 +3,14 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle
+  DialogTitle,
+  Button
 } from "@material-ui/core";
 import { useState } from "react";
 
-function aa() {
-  const [open, setOpen] = useState(true);
+export default function CompDialog(props) {
+  /* console.log(props); */
+  const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -18,32 +20,25 @@ function aa() {
     setOpen(true);
   };
 
-  const setUserDialog = (id) => {
-    const detectedUser = props.user.find((user) => user.id === id);
-    /* console.log(detectedUser); */
-    return (
+  return (
+    <div>
+      <Button variant="outlined" onClick={handleOpen}>
+        {props.user.name}
+      </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{detectedUser.name}</DialogTitle>
+        <DialogTitle>{props.user.name}</DialogTitle>
         <DialogContent>
           <DialogContentText>Buraya biraz yazı gelecek</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <button>Reddet</button>
-          <button>Onayla</button>
+          <Button onClick={handleClose} variant="contained">
+            Reddet
+          </Button>
+          <Button onClick={handleClose} variant="contained">
+            Onayla
+          </Button>
         </DialogActions>
       </Dialog>
-    );
-  };
-}
-
-export default function CompDialog(props) {
-  /* console.log(props); */
-
-  return (
-    <div>
-      {props.user.map((user) => (
-        <button onClick={aa(user.id)}>{user.id}</button>
-      ))}
     </div>
   );
 }
