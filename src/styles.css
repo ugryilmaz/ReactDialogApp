@@ -1,4 +1,4 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Saira:wght@600&display=swap");
+* {
+  font-family: "Saira", sans-serif !important;
 }

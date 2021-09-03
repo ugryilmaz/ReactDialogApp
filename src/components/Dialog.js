@@ -4,8 +4,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Button
-} from "@material-ui/core";
+  Button,
+  ButtonGroup
+} from "@mui/material";
 import { useState } from "react";
 
 export default function CompDialog(props) {
@@ -22,13 +23,13 @@ export default function CompDialog(props) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleOpen}>
-        {props.user.name}
-      </Button>
+      <ButtonGroup variant="text" aria-label="text button group">
+        <Button onClick={handleOpen}>{props.user.name}</Button>
+      </ButtonGroup>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>{props.user.name}</DialogTitle>
         <DialogContent>
-          <DialogContentText>Buraya biraz yazı gelecek</DialogContentText>
+          <DialogContentText>{props.user.desc}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} variant="contained">
