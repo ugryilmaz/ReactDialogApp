@@ -41,7 +41,7 @@ export default function App() {
   return (
     <div className="App">
       {user.map((user) => (
-        <CompDialog user={user} />
+        <CompDialog key={user.id} user={user} />
       ))}
     </div>
   );
